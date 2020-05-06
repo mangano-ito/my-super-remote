@@ -1,9 +1,9 @@
 from time import sleep
-from typing import List
 
 from serial import Serial
 
-type Sequence = List[int]
+from ..model.sequence import Sequence
+
 
 class IrSerial:
     """
@@ -16,7 +16,7 @@ class IrSerial:
     OPERATOR_EMIT_CAPTURED = 'e'.encode('ascii')
     OPERATOR_PRINT_CAPTURED = 'p'.encode('ascii')
 
-    def __init__(self, serial_connection: Serial) -> self:
+    def __init__(self, serial_connection: Serial) -> 'IrSerial':
         """
         :param serial_connection: PySerial serial connection
         """
@@ -24,7 +24,7 @@ class IrSerial:
         self.conn = serial_connection
 
     @classmethod
-    def from_port(cls, port = '/dev/ttyUSB0') -> IrSerial:
+    def from_port(cls, port = '/dev/ttyUSB0') -> 'IrSerial':
         """
         create instance from device port
 
