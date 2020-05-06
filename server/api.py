@@ -48,7 +48,8 @@ def send_preset(key: str):
         ir.send_sequence(preset)
         sleep(0.5)
         ir.emit_captured()
-    except:
-        raise HTTPException(status_code=500, detail='Ir communication error')
+    except Exception as e:
+        print(e)
+        raise HTTPException(status_code=500, detail='Ir communication error: {}'.format(e))
 
     return {'result': 'success'}
