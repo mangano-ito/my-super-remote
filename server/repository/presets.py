@@ -1,4 +1,7 @@
-from typing import List, Dict
+from typing import Dict
+
+from ..model.sequence import Sequence
+from ..model.preset import Preset
 
 class Presets:
     """
@@ -9,7 +12,7 @@ class Presets:
     }
 
     @classmethod
-    def load(cls, key: str) -> List[int]:
+    def load(cls, key: str) -> Sequence:
         """
         load preset by key
         (raise KeyError if not found)
@@ -21,7 +24,7 @@ class Presets:
         return cls.PRESETS[key]['sequence']
 
     @classmethod
-    def list_all(cls) -> Dict[str, Dict]:
+    def list_all(cls) -> Dict[str, Preset]:
         """
         list all the known presets
 
