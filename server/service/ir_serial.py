@@ -92,7 +92,7 @@ class IrSerial:
         just write int in multibyte manner + Big Endian
         """
 
-        self._write_bytes(signal.to_bytes(2, 'big', signed=True))
+        self._write_bytes(signal.to_bytes(2, 'big', signed=False))
 
     def _write_bytes(self, signal_bytes: bytes):
         """
